@@ -1,3 +1,3 @@
-![Logo](logo1.png "A smart dialogue system")
+![Logo](logo.png "A smart dialogue system")
 
 # Spoke
