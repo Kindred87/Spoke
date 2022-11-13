@@ -1,0 +1,43 @@
+GraceComesHome: # This is a scene name.  We can jump to it from other scenes!
+  - GraceOffWork := true # This is an expression that assigns a variable called GraceOffWork to true.
+  - Hey honey! # Regular dialogue
+  - choose: # Denotes a choice (1st)
+    - Hey sweetie. # Choice text
+    - Hey, she says before heading to the bathroom.
+    - choose:
+      - I follow her into the bathroom.
+      - BathroomAfterGraceComesHome:
+    - choose:
+      - I return to my work.
+      - I sink into my chair.
+  - choose: # Denotes a choice (2nd)
+    - '*ignore*'
+    - Grace pulls out a shotgun and opens fire!
+  - choose:
+    - gotADog == true # This is a conditional check.  If it fails, execution stops.  This results in the choice text not being read, which in turn disables the choice.
+    - I have a surprise for you!
+  - I take a deep breath.
+BathroomAfterGraceComesHome:
+  - So I've been meaning to ask you something...
+TestScene:
+  - var := 1
+  - Line1
+  - choose:
+    #- GotADog := true
+    - Choice1Line1
+    - Choice1Line2
+    - choose:
+      - gotADog == true
+      #- haveNDogs := 2
+      - Choice1.1Line1
+      - Choice1.1Line2
+      - BathroomAfterGraceComesHome:
+    - choose:
+      - Choice1.2Line1
+      - Choice1.2Line2
+  - choose:
+    - Choice2Line1
+    - Choice2Line2
+  - choose:
+    - Choice3Line1
+    - Choice3Line2
